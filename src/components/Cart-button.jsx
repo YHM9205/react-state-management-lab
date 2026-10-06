@@ -1,27 +1,43 @@
 import { useState } from "react";
-import "./Cart-button.css";
 
-export default function CartButton({ onAdd }) {
-    const [adding, setAdding] = useState(false);
+const [adding, setAdding] = useState(false);
 
-    function handleClick() {
-        if (adding) return;
-        setAdding(true);
-        onAdd?.();
-        setTimeout(() => setAdding(false), 2500);
-    }
-
-    return (
-        <button className={`cart-btn ${adding ? "go" : ""}`} onClick={handleClick}>
-            <span className="label">Add to cart</span>
-            <span className="done">Added ✓</span>
-            <svg viewBox="0 0 24 24">
-                <path d="M2 3h3l2.5 12h11L21 7H6" />
-                <circle cx="9" cy="20" r="1.6" />
-                <circle cx="17" cy="20" r="1.6" />
-            </svg>
-            <i className="box" />
-            <i className="scan" />
-        </button>
-    );
+function handelClick() {
+    if (adding) return;
+    setAdding(true)
+    setTimeout(() => setAdding(false), 2500)
 }
+return (
+    <div className="Sayedscloset">
+        <h1>Sayed Hamed Closet</h1>
+        <h2>Your Balance:{availableBalance}</h2>
+
+        {warningMessage && <p style={{ color: 'red', fontWeight: 'bold' }}>{warningMessage}</p>}
+
+        <h2>Available Items</h2>
+        {availableItems.length === 0 ? (
+            <p>No available items left!</p>) : (
+            <div>
+                {availableItems.map((item) => (
+                    <div key={item.id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
+                        <p>{item.name} - ${item.price}</p>
+                        <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
+                    </div>
+                ))}
+            </div>
+        )}
+        <h2>Shoping Cat </h2>
+        {shoppingCart.length === 0 ? (
+            <p>Your shopping cart is empty.</p>) : (
+            <div>
+                {shoppingCart.map((item) => (
+                    <div key={item.id} style={{ border: '1px dashed #666', margin: '10px', padding: '10px' }}>
+                        <p>{item.name} - ${item.price}</p>
+                        <RemoveButton onRemove={() => handleRemoveFromShoppingCart(item)} />
+                    </div>
+                ))}
+            </div>
+        )}
+    </div>
+
+)
