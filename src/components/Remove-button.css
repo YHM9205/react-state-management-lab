@@ -1,0 +1,86 @@
+.neon-btn {
+    --c: #f43f9e;
+    position: relative;
+    padding: 12px 26px;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    cursor: pointer;
+    text-shadow: 0 0 12px var(--c);
+    transition: 0.4s;
+}
+
+.neon-btn:hover,
+.neon-btn:focus-visible {
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 18px var(--c), inset 0 0 12px var(--c);
+    outline: none;
+}
+
+.neon-btn i {
+    position: absolute;
+    background: var(--c);
+    box-shadow: 0 0 10px var(--c);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.neon-btn i:nth-child(1),
+.neon-btn i:nth-child(2) {
+    width: 2px;
+    height: 20px;
+    left: 50%;
+}
+
+.neon-btn i:nth-child(1) {
+    top: -36px;
+}
+
+.neon-btn i:nth-child(2) {
+    bottom: -36px;
+}
+
+.neon-btn i:nth-child(3),
+.neon-btn i:nth-child(4) {
+    height: 2px;
+    width: 20px;
+    top: 50%;
+}
+
+.neon-btn i:nth-child(3) {
+    left: -46px;
+}
+
+.neon-btn i:nth-child(4) {
+    right: -46px;
+}
+
+.neon-btn:hover i,
+.neon-btn:focus-visible i {
+    opacity: 1;
+}
+
+.neon-btn:hover i:nth-child(1),
+.neon-btn:focus-visible i:nth-child(1) {
+    top: -26px;
+}
+
+.neon-btn:hover i:nth-child(2),
+.neon-btn:focus-visible i:nth-child(2) {
+    bottom: -26px;
+}
+
+.neon-btn:hover i:nth-child(3),
+.neon-btn:focus-visible i:nth-child(3) {
+    left: -34px;
+}
+
+.neon-btn:hover i:nth-child(4),
+.neon-btn:focus-visible i:nth-child(4) {
+    right: -34px;
+}
